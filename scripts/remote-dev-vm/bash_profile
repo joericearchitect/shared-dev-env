@@ -3,7 +3,7 @@ export AWS_SECRET_ACCESS_KEY=<access_key>
 
 export GIT_PROJECTS_HOME=~/git
 
-export DIR_INFRA_HOME=$GIT_PROJECTS_HOME/dev-ops-common
+export DIR_INFRA_HOME=$GIT_PROJECTS_HOME/shared-infra
 
 export SCRIPTS_DIR_INFRA_DEV_ENV=$DIR_INFRA_HOME/dev-env/scripts
 export SCRIPTS_DIR_INFRA_DEV_ENV_COMMON=$SCRIPTS_DIR_INFRA_DEV_ENV/common

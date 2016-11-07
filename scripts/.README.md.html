@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>/git/joericearchitect/dev-ops-common/dev-env/scripts/.README.md.html</title>
+<title>/git/joericearchitect/shared-dev-env/scripts/.README.md.html</title>
 
 
 <style type="text/css">
@@ -650,13 +650,58 @@ function setDocumentScrollTop(ypos)
   <tr> 
    <th>variable name</th> 
    <th>description</th> 
+   <th>higly encoured</th> 
+   <th>default value</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr> 
+   <td>$LOCAL_GIT_PROJECTS_HOME</td> 
+   <td>location where git files are stored on local machine.</td> 
+   <td>x</td> 
+   <td>~/git</td> 
+  </tr> 
+  <tr> 
+   <td>$LOCAL_MAVEN_CONF_DIR</td> 
+   <td>Location of the local maven configuration file.</td> 
+   <td></td> 
+   <td>~/git</td> 
+  </tr> 
+  <tr> 
+   <td>$LOCAL_MAVEN_REPO_DIR</td> 
+   <td>Location of the local maven configuration file.</td> 
+   <td></td> 
+   <td>~/git</td> 
+  </tr> 
+  <tr> 
+   <td>$AWS_ACCESS_ID</td> 
+   <td>Your private aws access id</td> 
+   <td></td> 
+   <td>&lt;no-default - you will have to set it manually in the VM</td> 
+  </tr> 
+  <tr> 
+   <td>$AWS_SECRET_ACCESS_KEY</td> 
+   <td>Your private aws access id</td> 
+   <td></td> 
+   <td>&lt;no-default - you will have to set it manually in the VM</td> 
+  </tr> 
+ </tbody> 
+</table> 
+<h1> <a id="remote-vm" class="anchor" href="#remote-vm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Remote VM</h1> 
+<table> 
+ <thead> 
+  <tr> 
+   <th>variable name</th> 
+   <th>description</th> 
+   <th>higly encoured</th> 
    <th>default value</th> 
   </tr> 
  </thead> 
  <tbody> 
   <tr> 
    <td>$GIT_PROJECTS_HOME</td> 
-   <td>location where git files are stored.</td> 
+   <td>location where git files will be stored on the VM.</td> 
+   <td></td> 
    <td>~/git</td> 
   </tr> 
  </tbody> 

@@ -1,16 +1,57 @@
+# -----------------------------------------------------------------------------
+# AWS Credentials - your specific AWS secret key and id.  
+# 
+# The values you put here will also be set as environment variables on the dev-env VM.
+#
+# If you are going to use AWS on either local machine or the dev-env VM, you want to set
+# these.
+# -----------------------------------------------------------------------------
 export AWS_ACCESS_KEY_ID=<access_key>
 export AWS_SECRET_ACCESS_KEY=<access_key>
 
-export GIT_PROJECTS_HOME=/git/joericearchitect
+# -----------------------------------------------------------------------------
+# Environment variables that customize the standard Vagrant-based dev environment.  
+#
+# These variables override the defaults set in this Vagrantfile:   
+#    https://github.com/joericearchitect/shared-dev-env/blob/master/vagrant/Vagrantfile
+#
+# The variables that start with DEV_ENV_LOCAL tells Vagrant what resources on your local machine
+# to carry over into the dev environment VM.  
+#
+# The variables that start with DEV_ENV_VM define where the resources will be used in the dev-env VM.
+#
+# For example, to customize the git folder locations on both local machine and VM, set the following:
+#  DEV_ENV_LOCAL_GIT_PROJECTS_DIR   - the root git folder on your local machine that will be synced with the VM
+#  DEV_ENV_VM_GIT_PROJECTS_DIR      - where the root git folder will be located on the VM.
+#
+@  ** IMPORTANT
+#    Replace the values below with your preferred locations.  The ones below are just examples.
+#    The purpose of these environment variales are to customize the dev environment to your liking.
+#    If you prefer to use the default locations, do NOT include these variables.  The default locations
+#    are set in the Dev Environment Vagrantfile 
+#
+# One last tidbit of info.  the dev env Vagrantfile define all synced folders under a single root directory. 
+#   local:  ~/dev-env/<folder-name>
+#   vm:     /home/vagrant/workspace/
+# -----------------------------------------------------------------------------
+export AWS_ACCESS_KEY_ID=<access-key-id>
+export AWS_SECRET_ACCESS_KEY=<secret-access-key>
 
-export DIR_INFRA_HOME=$GIT_PROJECTS_HOME/dev-ops-common
+export DEV_ENV_LOCAL_GIT_PROJECTS_DIR=/git/joericearchitect
+export GIT_PROJECTS_DIR=$DEV_ENV_LOCAL_GIT_PROJECTS_DIR
 
-export SCRIPTS_DIR_INFRA_DEV_ENV=$DIR_INFRA_HOME/dev-env/scripts
-export SCRIPTS_DIR_INFRA_DEV_ENV_COMMON=$SCRIPTS_DIR_INFRA_DEV_ENV/common
-export SCRIPTS_DIR_INFRA_DEV_ENV_LOCAL=$SCRIPTS_DIR_INFRA_DEV_ENV/local-machine
-export SCRIPTS_DIR_INFRA_DEV_ENV_VM=$SCRIPTS_DIR_INFRA_DEV_ENV/remote-dev-vm
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export JMETER_HOME=/dev-home/apps/jmeter/apache-jmeter-2.1
+export SCRIPTS_HOME=/dev-home/scripts
+export AWS_JOEARCH_SCRIPTS_HOME="/Users/jorice/joericearchitect/Google Drive/aws/accounts/joericearchitect/scripts"
+export AWS_LAUNDRY_SCRIPTS_HOME="/Users/jorice/joericearchitect/Google Drive/aws/accounts/laundry-pro/scripts"
 
-export SCRIPTS_DIR_SITE_JARCH=$GIT_PROJECTS_HOME/site-joe-rice-architect/devops/scripts
-export SCRIPTS_DIR_APP_MINECAT=$GIT_PROJECTS_HOME/app-mine-the-catalog/devops/scripts
+export PROJ_DIR_SHARED_DEV_ENV=$GIT_PROJECTS_DIR/shared-dev-env
 
-export PATH=$PATH:$SCRIPTS_DIR_SITE_JARCH:$SCRIPTS_DIR_APP_MINECAT:$SCRIPTS_DIR_INFRA_DOCKER:$SCRIPTS_DIR_INFRA_GLOBAL:$SCRIPTS_DIR_INFRA_DEV_ENV
+export SCRIPTS_DIR_INFRA_DOCKER=$GIT_PROJECTS_DIR/shared-infra/scripts/docker
+export SCRIPTS_DIR_INFRA_GLOBAL=$GIT_PROJECTS_DIR/shared-infra/scripts
+export SCRIPTS_DIR_INFRA_DEV_ENV=$PROJ_DIR_SHARED_DEV_ENV/scripts
+export SCRIPTS_DIR_INFRA_DEV_ENV_LOCAL=$PROJ_DIR_SHARED_DEV_ENV/scripts/local-machine
+
+
+export PATH=$PATH:$JMETER_HOME/bin:$SCRIPTS_HOME:$AWS_JOEARCH_SCRIPTS_HOME:$AWS_LAUNDRY_SCRIPTS_HOME:$SCRIPTS_DIR_INFRA_DEV_ENV_LOCAL

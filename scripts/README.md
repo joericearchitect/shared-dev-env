@@ -9,8 +9,19 @@ Will come back and update this page to make it shareable
 
 The scripts will try to make reasonable defaults based relative to the vagrantfile directory.
 
+
 ## Both Local Dev & Remote VM
 
-| variable name | description | default value |
-| ------ | ----------- | ------ | ----------- |
-| $GIT_PROJECTS_HOME | location where git files are stored. | ~/git |
+| variable name | description | higly encoured | default value |
+| ------ | ----------- | ------ | ----------- | ----------- |
+| $LOCAL_GIT_PROJECTS_HOME | location where git files are stored on local machine. | x | ~/git |
+| $LOCAL_MAVEN_CONF_DIR | Location of the local maven configuration file. | | ~/git |
+| $LOCAL_MAVEN_REPO_DIR | Location of the local maven configuration file. | | ~/git |
+| $AWS_ACCESS_ID | Your private aws access id | | <no-default - you will have to set it manually in the VM |
+| $AWS_SECRET_ACCESS_KEY | Your private aws access id | | <no-default - you will have to set it manually in the VM |
+
+# Remote VM
+| variable name | description | higly encoured | default value |
+| ------ | ----------- | ------ | ----------- | ----------- |
+| $GIT_PROJECTS_HOME | location where git files will be stored on the VM. | | ~/git |
+

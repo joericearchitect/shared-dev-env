@@ -1,5 +1,11 @@
 #!/bin/sh
 
+DEV_ENV_VM_GIT_PROJECTS_DIR = $1
+DEV_ENV_VM_APPS_DIR = $2
+DEV_ENV_VM_MAVEN_CONF_DIR = $3
+DEV_ENV_VM_MAVEN_REPO_DIR = $4
+DEV_ENV_VM_AWS_DIR = $5
+
 #
 # JRA Development Environment
 #  VM Provision Script - This script will "provision" the dev environment VM by installing all prerequisits.
@@ -8,13 +14,31 @@
 echo "."
 echo "*********************************************************************************
 echo "   Provisioning wdpr dev environment virtual machine..."
+echo "     GIT_PROJECTS_DIR = $GIT_PROJECTS_DIR "
+echo "     APPS_DIR = $APPS_DIR "
+echo "     MAVEN_CONF_DIR = $MAVEN_CONF_DIR "
+echo "     MAVEN_REPO_DIR = $MAVEN_REPO_DIR "
+echo "     AWS_DIR = $AWS_DIR "
+echo "   ."
+echo "     DEV_ENV_VM_GIT_PROJECTS_DIR = $DEV_ENV_VM_GIT_PROJECTS_DIR "
+echo "     DEV_ENV_VM_APPS_DIR = $DEV_ENV_VM_APPS_DIR "
+echo "     DEV_ENV_VM_MAVEN_CONF_DIR = $DEV_ENV_VM_MAVEN_CONF_DIR "
+echo "     DEV_ENV_VM_MAVEN_REPO_DIR = $DEV_ENV_VM_MAVEN_REPO_DIR "
+echo "     DEV_ENV_VM_AWS_DIR = $DEV_ENV_VM_AWS_DIR "
+echo "     
 echo "*********************************************************************************
 
 echo "."
 echo "*********************************************************************************
 echo "   Setting up folder permissions..."
 echo "*********************************************************************************
-sudo chown -R vagrant:vagrant /home/vagrant/workspace
+sudo chown -R vagrant:vagrant
+sudo chown -R vagrant:vagrant $DEV_ENV_VM_GIT_PROJECTS_DIR
+sudo chown -R vagrant:vagrant $DEV_ENV_VM_APPS_DIR
+sudo chown -R vagrant:vagrant $DEV_ENV_VM_MAVEN_CONF_DIR
+sudo chown -R vagrant:vagrant $DEV_ENV_VM_MAVEN_REPO_DIR
+sudo chown -R vagrant:vagrant $DEV_ENV_VM_AWS_DIR
+
 
 echo "."
 echo "*********************************************************************************
