@@ -18,7 +18,7 @@ The scripts will try to make reasonable defaults based relative to the vagrantfi
 | $LOCAL_MAVEN_CONF_DIR | Location of the local maven configuration file. | | ~/git |
 | $LOCAL_MAVEN_REPO_DIR | Location of the local maven configuration file. | | ~/git |
 | $AWS_ACCESS_ID | Your private aws access id | | <no-default - you will have to set it manually in the VM |
-| $AWS_SECRET_ACCESS_KEY | Your private aws access id | | <no-default - you will have to set it manually in the VM |
+| $AWS_SECRET_KEY | Your private aws access id | | <no-default - you will have to set it manually in the VM |
 
 # Remote VM
 | variable name | description | higly encoured | default value |

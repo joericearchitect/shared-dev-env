@@ -66,8 +66,8 @@ Vagrant.configure(2) do |config|
   vm_maven_repo_dir = ENV['DEV_ENV_VM_MAVEN_REPO_DIR'] ? ENV['DEV_ENV_VM_MAVEN_REPO_DIR'] : "#{default_vm_maven_repo_dir}"
   vm_aws_dir = ENV['DEV_ENV_VM_AWS_DIR'] ? ENV['DEV_ENV_VM_AWS_DIR'] : "#{default_vm_aws_dir}"
   
-  vm_aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
-  vm_aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+  vm_aws_access_key_id = ENV['AWS_ACCESS_KEY']
+  vm_aws_secret_access_key = ENV['AWS_SECRET_KEY']
   
   
   # -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -84,8 +84,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, inline: "echo \"export MAVEN_REPO_DIR=#{vm_maven_repo_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "echo \"export AWS_DIR=#{vm_aws_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   
-  config.vm.provision :shell, inline: "echo \"export AWS_ACCESS_KEY_ID=#{vm_aws_access_key_id}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
-  config.vm.provision :shell, inline: "echo \"export AWS_SECRET_ACCESS_KEY=#{vm_aws_secret_access_key}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
+  config.vm.provision :shell, inline: "echo \"export AWS_ACCESS_KEY=#{vm_aws_access_key_id}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
+  config.vm.provision :shell, inline: "echo \"export AWS_SECRET_KEY=#{vm_aws_secret_access_key}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   
   config.vm.provision :shell, inline: "echo \"export SCRIPTS_DIR_INFRA_DOCKER=$GIT_PROJECTS_DIR/shared-infra/scripts/docker\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "echo \"export SCRIPTS_DIR_INFRA_GLOBAL=$GIT_PROJECTS_DIR/shared-infra/scripts\" >> /etc/profile.d/dev-env-vars.sh", run: "always"

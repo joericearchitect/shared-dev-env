@@ -6,8 +6,8 @@
 # If you are going to use AWS on either local machine or the dev-env VM, you want to set
 # these.
 # -----------------------------------------------------------------------------
-export AWS_ACCESS_KEY_ID=<access_key>
-export AWS_SECRET_ACCESS_KEY=<access_key>
+export AWS_ACCESS_KEY=<access_key>
+export AWS_SECRET_KEY=<access_key>
 
 # -----------------------------------------------------------------------------
 # Environment variables that customize the standard Vagrant-based dev environment.  
@@ -34,8 +34,8 @@ export AWS_SECRET_ACCESS_KEY=<access_key>
 #   local:  ~/dev-env/<folder-name>
 #   vm:     /home/vagrant/workspace/
 # -----------------------------------------------------------------------------
-export AWS_ACCESS_KEY_ID=<access-key-id>
-export AWS_SECRET_ACCESS_KEY=<secret-access-key>
+export AWS_ACCESS_KEY=<access-key-id>
+export AWS_SECRET_KEY=<secret-access-key>
 
 export DEV_ENV_LOCAL_GIT_PROJECTS_DIR=/git/joericearchitect
 export GIT_PROJECTS_DIR=$DEV_ENV_LOCAL_GIT_PROJECTS_DIR
@@ -55,3 +55,10 @@ export SCRIPTS_DIR_INFRA_DEV_ENV_LOCAL=$PROJ_DIR_SHARED_DEV_ENV/scripts/local-ma
 
 
 export PATH=$PATH:$JMETER_HOME/bin:$SCRIPTS_HOME:$AWS_JOEARCH_SCRIPTS_HOME:$AWS_LAUNDRY_SCRIPTS_HOME:$SCRIPTS_DIR_INFRA_DEV_ENV_LOCAL
+
+
+# -----------------------------------------------------------------------------
+# Set Aliases for convience
+# -----------------------------------------------------------------------------
+alias ajs="source activate-machine.sh jarch-sites && active-machine.sh"
+alias am="active-machine.sh"
