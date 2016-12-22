@@ -25,7 +25,7 @@ echo "     DEV_ENV_VM_APPS_DIR = $DEV_ENV_VM_APPS_DIR "
 echo "     DEV_ENV_VM_MAVEN_CONF_DIR = $DEV_ENV_VM_MAVEN_CONF_DIR "
 echo "     DEV_ENV_VM_MAVEN_REPO_DIR = $DEV_ENV_VM_MAVEN_REPO_DIR "
 echo "     DEV_ENV_VM_AWS_DIR = $DEV_ENV_VM_AWS_DIR "
-echo "     
+echo "
 echo "*********************************************************************************
 
 echo "."
@@ -39,12 +39,13 @@ sudo chown -R vagrant:vagrant $DEV_ENV_VM_MAVEN_CONF_DIR
 sudo chown -R vagrant:vagrant $DEV_ENV_VM_MAVEN_REPO_DIR
 sudo chown -R vagrant:vagrant $DEV_ENV_VM_AWS_DIR
 
-
 echo "."
 echo "*********************************************************************************
-echo "   updating apt-get"
+echo "   updating apt-get and installing common linux tools"
 echo "*********************************************************************************
 sudo apt-get update -y > /dev/null
+sudo apt-get install -y zip > /dev/null
+sudo apt-get install -y unzip > /dev/null
 
 echo "."
 echo "*********************************************************************************
@@ -71,9 +72,23 @@ echo "."
 echo "*********************************************************************************
 echo "   Installing Docker Machine"
 echo "*********************************************************************************
-sudo curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >~/docker-machine 
-sudo mv ~/docker-machine /usr/local/bin/docker-machine 
+sudo curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >~/docker-machine
+sudo mv ~/docker-machine /usr/local/bin/docker-machine
 sudo chmod +x /usr/local/bin/docker-machine
+
+echo "."
+echo "*********************************************************************************
+echo "   Installing Terraform"
+echo "*********************************************************************************
+sudo curl -L https://releases.hashicorp.com/terraform/0.7.13/terraform_0.7.13_linux_amd64.zip >~/terraform_0.7.13_linux_amd64.zip
+sudo unzip ~/terraform_0.7.13_linux_amd64.zip -d /usr/local/bin
+
+echo "."
+echo "*********************************************************************************
+echo "   Installing Packer"
+echo "*********************************************************************************
+sudo curl -L https://releases.hashicorp.com/packer/0.12.0/packer_0.12.0_linux_amd64.zip >~/packer_0.12.0_linux_amd64.zip
+sudo unzip ~/packer_0.12.0_linux_amd64.zip -d /usr/local/bin
 
 echo "."
 echo "*********************************************************************************"
@@ -99,7 +114,7 @@ echo "**************************************************************************
 echo "   installing gradle
 echo "*********************************************************************************
 sudo add-apt-repository ppa:cwchien/gradle -y > /dev/null
-sudo apt-get update -y > /dev/null 
+sudo apt-get update -y > /dev/null
 sudo apt-get install gradle -y > /dev/null
 
 echo "."
@@ -115,3 +130,10 @@ echo "**************************************************************************
 sudo apt-get install build-essential libxml2-dev -y > /dev/null
 #wget http://in1.php.net/distributions/php-5.3.29.tar.bz2
 #wget http://in1.php.net/distributions/php-7.0.12.tar.bz2
+
+
+echo "."
+echo "*********************************************************************************
+echo "   Setting up environment variables - END..."
+echo "*********************************************************************************
+sudo > /etc/profile.d/dev-env-vars-shell.sh
