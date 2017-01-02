@@ -10,7 +10,6 @@ DEV_ENV_VM_AWS_DIR = $5
 # JRA Development Environment
 #  VM Provision Script - This script will "provision" the dev environment VM by installing all prerequisits.
 #  Note:  there may be other provisioners that run before or after this script.  Check the Vagrantfile.
-
 echo "."
 echo "*********************************************************************************
 echo "   Provisioning wdpr dev environment virtual machine..."
@@ -49,6 +48,13 @@ sudo apt-get install -y unzip > /dev/null
 
 echo "."
 echo "*********************************************************************************
+echo "   Installing Pip"
+echo "*********************************************************************************
+sudo wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+
+echo "."
+echo "*********************************************************************************
 echo "   Installing Git"
 echo "*********************************************************************************
 sudo apt-get install git -y > /dev/null
@@ -75,6 +81,24 @@ echo "**************************************************************************
 sudo curl -L https://github.com/docker/machine/releases/download/v0.8.2/docker-machine-`uname -s`-`uname -m` >~/docker-machine
 sudo mv ~/docker-machine /usr/local/bin/docker-machine
 sudo chmod +x /usr/local/bin/docker-machine
+
+echo "."
+echo "*********************************************************************************
+echo "   Installing Ansible"
+echo "*********************************************************************************
+sudo apt-get install software-properties-common -y > /dev/null
+sudo apt-add-repository ppa:ansible/ansible -y > /dev/null
+sudo apt-get update -y > /dev/null
+sudo apt-get install ansible -y > /dev/null
+# install ansible dependencies.  Boto, docker-py, and ec2.py
+sudo pip install boto
+sudo pip install boto3
+sudo pip install docker
+sudo wget https://raw.github.com/ansible/ansible/devel/contrib/inventory/ec2.py
+sudo mv ec2.py /etc/ansible
+sudo chmod +x /etc/ansible/ec2.py
+sudo wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini
+sudo mv ec2.ini /etc/ansible
 
 echo "."
 echo "*********************************************************************************
