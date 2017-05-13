@@ -67,13 +67,13 @@ Before diving into too many details, let's take a look at the big picture
 
 Files in these folders will be synced between the local host machine and the dev env VM.  changes made on the host machine are immediately reflected in the VM and vice-versa.
  
-| Folder Name | Description | Default Folder path on host machine | Folder path on dev env VM |
+| Folder Name | Description | Default Folder path on host machine | Override Env Variable | Folder path on dev env VM | Override Env Variable |
 | ------ | ----------- | ----------- | ----------- |
-| git | source code.  location of git repos for various projects | <local-git-project-repo>/dev-env/vagrant/workspace/git/ | /home/vagrant/workspace/git |
-| applications | applications and configuration that are shared between host and vm | <local-git-project-repo>/dev-env/vagrant/workspace/applications/ | /home/vagrant/workspace/applications |
-| maven/conf | configuration files for maven.  So, you can re-use your maven configurations between local and vm | <local-git-project-repo>/dev-env/vagrant/workspace/maven/conf/ | /home/vagrant/workspace/maven/conf |
-| maven/.m2 | local Maven repository.  so the VM can access all the maven files that are already on the local machine. | <local-git-project-repo>/dev-env/vagrant/workspace/maven/.m2/ | /home/vagrant/workspace/maven/.m2 |
-| aws | source code.  location of git repos for various projects | <local-git-project-repo>/dev-env/vagrant/workspace/aws/ | /home/vagrant/workspace/aws |
+| git | source code.  location of git repos for various projects | <local-git-project-repo>/dev-env/vagrant/workspace/git/ | X | /home/vagrant/workspace/git | X |
+| applications | applications and configuration that are shared between host and vm | <local-git-project-repo>/dev-env/vagrant/workspace/applications/ | X | /home/vagrant/workspace/applications | X |
+| maven/conf | configuration files for maven.  So, you can re-use your maven configurations between local and vm | <local-git-project-repo>/dev-env/vagrant/workspace/maven/conf/ | X | /home/vagrant/workspace/maven/conf | X |
+| maven/.m2 | local Maven repository.  so the VM can access all the maven files that are already on the local machine. | <local-git-project-repo>/dev-env/vagrant/workspace/maven/.m2/ | X | /home/vagrant/workspace/maven/.m2 | X |
+| aws | source code.  location of git repos for various projects | <local-git-project-repo>/dev-env/vagrant/workspace/aws/ | X | /home/vagrant/workspace/aws | X |
 
 ------
 

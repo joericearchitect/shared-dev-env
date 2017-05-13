@@ -82,7 +82,7 @@ Vagrant.configure(2) do |config|
   # See this page for what env variables will be set on the VM.  And what environment variables they map to on the local machine:
   #    https://github.com/joericearchitect/shared-dev-env/tree/master/vagrant
   # -----------------------------------------------------------------------------------------------------------------------------------------------
-  config.vm.provision :shell, inline: "rm /etc/profile.d/dev-env-vars.sh", run: "always"
+  config.vm.provision :shell, inline: "rm -f /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "> /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "echo \"export GIT_PROJECTS_DIR=#{vm_git_projects_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "echo \"export APPS_DIR=#{vm_apps_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
