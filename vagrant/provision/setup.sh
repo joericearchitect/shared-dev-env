@@ -63,7 +63,7 @@ echo "."
 echo "*********************************************************************************
 echo "   Installing Maven"
 echo "*********************************************************************************
-sudo apt-get install maven -y > /dev/null
+	sudo apt-get install maven -y > /dev/null
 # for Maven, setting a new symbolic link so that maven points to the conf dir that is synced with host machine.
 sudo rm /usr/share/maven/conf
 sudo ln -s /home/vagrant/workspace/maven/conf /usr/share/maven/conf

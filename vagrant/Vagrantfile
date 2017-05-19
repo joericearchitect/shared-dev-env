@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "JRA Development Environment"
+    vb.name = "JRA Dev Environment"
     vb.customize ["modifyvm", :id, "--memory", "2000"]
   end
 
@@ -39,12 +39,12 @@ Vagrant.configure(2) do |config|
   default_local_aws_keys_dir = "~/dev-env/aws-keys/"
   default_local_share_dir = "~/dev-env/share/"
 
-  default_vm_git_projects_dir = "/home/vagrant/git"
-  default_vm_apps_dir = "/home/vagrant/workspace/apps"
-  default_vm_maven_conf_dir = "/home/vagrant/workspace/maven/conf"
-  default_vm_maven_repo_dir = "/home/vagrant/.m2"
-  default_vm_aws_dir = "/home/vagrant/.aws"
-  default_vm_share_dir = "/home/vagrant/share"
+  default_vm_git_projects_dir = "~/vagrant/git"
+  default_vm_apps_dir = "~/vagrant/workspace/apps"
+  default_vm_maven_conf_dir = "~/vagrant/workspace/maven/conf"
+  default_vm_maven_repo_dir = "~/vagrant/.m2"
+  default_vm_aws_dir = "~/vagrant/.aws"
+  default_vm_share_dir = "~/vagrant/share"
 
   # -----------------------------------------------------------------------------------------------------------------------------------------------
   # Set Variables to be used for local machines and dev env VMs.
@@ -84,7 +84,7 @@ Vagrant.configure(2) do |config|
   # -----------------------------------------------------------------------------------------------------------------------------------------------
   config.vm.provision :shell, inline: "rm -f /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "> /etc/profile.d/dev-env-vars.sh", run: "always"
-  config.vm.provision :shell, inline: "echo \"export GIT_PROJECTS_DIR=#{vm_git_projects_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
+  config.vm.provision :shell, inline: "echo \"export GIT_PROJECTS_DIR=#{vm_git_projects_dir}\" >> `", run: "always"
   config.vm.provision :shell, inline: "echo \"export APPS_DIR=#{vm_apps_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "echo \"export MAVEN_CONF_DIR=#{vm_maven_conf_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
   config.vm.provision :shell, inline: "echo \"export MAVEN_REPO_DIR=#{vm_maven_repo_dir}\" >> /etc/profile.d/dev-env-vars.sh", run: "always"
