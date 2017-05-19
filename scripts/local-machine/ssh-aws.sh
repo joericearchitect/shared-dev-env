@@ -7,4 +7,4 @@
 #    Uses the Dockerfile in this same git repo
 # *********************************************************************************
 
-ssh -i $AWS_KEY_PATH ubuntu@$1
+ssh -i $AWS_KEY_PATH ubuntu@$1 $2
