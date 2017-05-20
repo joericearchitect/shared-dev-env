@@ -84,6 +84,14 @@ sudo chmod +x /usr/local/bin/docker-machine
 
 echo "."
 echo "*********************************************************************************
+echo "   Installing jq"
+echo "*********************************************************************************
+sudo curl -L https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 >~/jq-linux64
+sudo mv ~/jq-linux64 /usr/local/bin/jq
+sudo chmod +x /usr/local/bin/jq
+
+echo "."
+echo "*********************************************************************************
 echo "   Installing Ansible"
 echo "*********************************************************************************
 sudo apt-get install software-properties-common -y > /dev/null
