@@ -28,7 +28,7 @@ echo "
 echo "*********************************************************************************
 
 echo "."
-echo "*********************************************************************************
+echo "
 echo "   Setting up folder permissions..."
 echo "*********************************************************************************
 sudo chown -R vagrant:vagrant
@@ -42,9 +42,11 @@ echo "."
 echo "*********************************************************************************
 echo "   updating apt-get and installing common linux tools"
 echo "*********************************************************************************
-sudo apt-get update -y > /dev/null
-sudo apt-get install -y zip > /dev/null
-sudo apt-get install -y unzip > /dev/null
+sudo apt-get update -y 
+sudo apt-get install -y zip 
+sudo apt-get install -y unzip 
+sudo apt-get install -y dos2unix 
+
 
 echo "."
 echo "*********************************************************************************
@@ -57,13 +59,13 @@ echo "."
 echo "*********************************************************************************
 echo "   Installing Git"
 echo "*********************************************************************************
-sudo apt-get install git -y > /dev/null
+sudo apt-get install git -y 
 
 echo "."
 echo "*********************************************************************************
 echo "   Installing Maven"
 echo "*********************************************************************************
-	sudo apt-get install maven -y > /dev/null
+sudo apt-get install maven -y 
 # for Maven, setting a new symbolic link so that maven points to the conf dir that is synced with host machine.
 sudo rm /usr/share/maven/conf
 sudo ln -s /home/vagrant/workspace/maven/conf /usr/share/maven/conf
@@ -94,10 +96,10 @@ echo "."
 echo "*********************************************************************************
 echo "   Installing Ansible"
 echo "*********************************************************************************
-sudo apt-get install software-properties-common -y > /dev/null
-sudo apt-add-repository ppa:ansible/ansible -y > /dev/null
-sudo apt-get update -y > /dev/null
-sudo apt-get install ansible -y > /dev/null
+sudo apt-get install software-properties-common -y 
+sudo apt-add-repository ppa:ansible/ansible -y 
+sudo apt-get update -y 
+sudo apt-get install ansible -y 
 # install ansible dependencies.  Boto, docker-py, and ec2.py
 sudo pip install boto
 sudo pip install boto3
@@ -139,33 +141,27 @@ echo "**************************************************************************
 echo "   installing node.js
 echo "*********************************************************************************
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install nodejs -y > /dev/null
+sudo apt-get install nodejs -y 
 
 echo "."
 echo "*********************************************************************************
 echo "   installing gradle
 echo "*********************************************************************************
-sudo add-apt-repository ppa:cwchien/gradle -y > /dev/null
-sudo apt-get update -y > /dev/null
-sudo apt-get install gradle -y > /dev/null
+sudo add-apt-repository ppa:cwchien/gradle -y 
+sudo apt-get update -y 
+sudo apt-get install gradle -y 
 
 echo "."
 echo "*********************************************************************************
 echo "   installing imagemagick
 echo "*********************************************************************************
-sudo apt-get install imagemagick -y > /dev/null
+sudo apt-get install imagemagick -y 
 
 echo "."
 echo "*********************************************************************************
 echo "   installing PHP
 echo "*********************************************************************************
-sudo apt-get install build-essential libxml2-dev -y > /dev/null
+sudo apt-get install build-essential libxml2-dev -y 
 #wget http://in1.php.net/distributions/php-5.3.29.tar.bz2
 #wget http://in1.php.net/distributions/php-7.0.12.tar.bz2
 
-
-echo "."
-echo "*********************************************************************************
-echo "   Setting up environment variables - END..."
-echo "*********************************************************************************
-sudo > /etc/profile.d/dev-env-vars-shell.sh
