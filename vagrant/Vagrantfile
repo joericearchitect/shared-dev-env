@@ -31,13 +31,13 @@ Vagrant.configure(2) do |config|
   # These values will be used if the user has not provided an override environment variable.
   # -----------------------------------------------------------------------------------------------------------------------------------------------
   #define default values for environment variables
-  default_local_git_projects_dir = "~/dev-env/git/"
-  default_local_apps_dir = "~/dev-env/apps/"
-  default_local_maven_conf_dir = "~/dev-env/maven/conf/"
-  default_local_maven_repo_dir = "~/dev-env/maven/.m2"
-  default_local_aws_dir = "~/dev-env/aws/"
-  default_local_aws_key_file_dir = "~/dev-env/aws-keys/"
-  default_local_share_dir = "~/dev-env/share/"
+  default_local_git_projects_dir = "~/dev-env/jra/git/"
+  default_local_apps_dir = "~/dev-env/jra/apps/"
+  default_local_maven_conf_dir = "~/dev-env/jra/maven/conf/"
+  default_local_maven_repo_dir = "~/dev-env/jra/maven/.m2"
+  default_local_aws_dir = "~/dev-env/jra/aws/"
+  default_local_aws_key_file_dir = "~/dev-env/jra/aws-keys/"
+  default_local_share_dir = "~/dev-env/jra/share/"
 
   default_vm_git_projects_dir = "/home/vagrant/git"
   default_vm_apps_dir = "/home/vagrant/workspace/apps"
@@ -60,28 +60,28 @@ Vagrant.configure(2) do |config|
   # See this page for the override environment variable names:
   #    https://github.com/joericearchitect/shared-dev-env/tree/master/vagrant
   # -----------------------------------------------------------------------------------------------------------------------------------------------
-  local_git_projects_dir = ENV['DEV_ENV_LOCAL_GIT_PROJECTS_DIR'] ? ENV['DEV_ENV_LOCAL_GIT_PROJECTS_DIR'] : "#{default_local_git_projects_dir}"
-  local_apps_dir = ENV['DEV_ENV_LOCAL_APPS_DIR'] ? ENV['DEV_ENV_LOCAL_APPS_DIR'] : "#{default_local_apps_dir}"
-  local_maven_conf_dir = ENV['DEV_ENV_LOCAL_MAVEN_CONF_DIR'] ? ENV['DEV_ENV_LOCAL_MAVEN_CONF_DIR'] : "#{default_local_maven_conf_dir}"
-  local_maven_repo_dir = ENV['DEV_ENV_LOCAL_MAVEN_REPO_DIR'] ? ENV['DEV_ENV_LOCAL_MAVEN_REPO_DIR'] : "#{default_local_maven_repo_dir}"
-  local_aws_dir = ENV['DEV_ENV_LOCAL_AWS_DIR'] ? ENV['DEV_ENV_LOCAL_AWS_DIR'] : "#{default_local_aws_dir}"
-  local_aws_key_file_dir = ENV['DEV_ENV_LOCAL_AWS_KEY_FILE_DIR'] ? ENV['DEV_ENV_LOCAL_AWS_KEY_FILE_DIR'] : "#{default_local_aws_key_file_dir}"
-  local_share_dir = ENV['DEV_ENV_LOCAL_SHARE_DIR'] ? ENV['DEV_ENV_LOCAL_SHARE_DIR'] : "#{default_local_share_dir}"
+  local_git_projects_dir = ENV['JRA_DEV_ENV_LOCAL_GIT_PROJECTS_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_GIT_PROJECTS_DIR'] : "#{default_local_git_projects_dir}"
+  local_apps_dir = ENV['JRA_DEV_ENV_LOCAL_APPS_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_APPS_DIR'] : "#{default_local_apps_dir}"
+  local_maven_conf_dir = ENV['JRA_DEV_ENV_LOCAL_MAVEN_CONF_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_MAVEN_CONF_DIR'] : "#{default_local_maven_conf_dir}"
+  local_maven_repo_dir = ENV['JRA_DEV_ENV_LOCAL_MAVEN_REPO_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_MAVEN_REPO_DIR'] : "#{default_local_maven_repo_dir}"
+  local_aws_dir = ENV['JRA_DEV_ENV_LOCAL_AWS_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_AWS_DIR'] : "#{default_local_aws_dir}"
+  local_aws_key_file_dir = ENV['JRA_DEV_ENV_LOCAL_AWS_KEY_FILE_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_AWS_KEY_FILE_DIR'] : "#{default_local_aws_key_file_dir}"
+  local_share_dir = ENV['JRA_DEV_ENV_LOCAL_SHARE_DIR'] ? ENV['JRA_DEV_ENV_LOCAL_SHARE_DIR'] : "#{default_local_share_dir}"
 
-  vm_git_projects_dir = ENV['DEV_ENV_VM_GIT_PROJECTS_DIR'] ? ENV['DEV_ENV_VM_GIT_PROJECTS_DIR'] : "#{default_vm_git_projects_dir}"
-  vm_apps_dir = ENV['DEV_ENV_VM_APPS_DIR'] ? ENV['DEV_ENV_VM_APPS_DIR'] : "#{default_vm_apps_dir}"
-  vm_maven_conf_dir = ENV['DEV_ENV_VM_MAVEN_CONF_DIR'] ? ENV['DEV_ENV_VM_MAVEN_CONF_DIR'] : "#{default_vm_maven_conf_dir}"
-  vm_maven_repo_dir = ENV['DEV_ENV_VM_MAVEN_REPO_DIR'] ? ENV['DEV_ENV_VM_MAVEN_REPO_DIR'] : "#{default_vm_maven_repo_dir}"
-  vm_aws_dir = ENV['DEV_ENV_VM_AWS_DIR'] ? ENV['DEV_ENV_VM_AWS_DIR'] : "#{default_vm_aws_dir}"
-  vm_aws_key_file_dir = ENV['DEV_ENV_VM_AWS_KEY_FILE_DIR'] ? ENV['DEV_ENV_VM_AWS_KEY_FILE_DIR'] : "#{default_vm_aws_key_file_dir}"
-  vm_share_dir = ENV['DEV_ENV_VM_SHARE_DIR'] ? ENV['DEV_ENV_VM_SHARE_DIR'] : "#{default_vm_share_dir}"
+  vm_git_projects_dir = ENV['JRA_DEV_ENV_VM_GIT_PROJECTS_DIR'] ? ENV['JRA_DEV_ENV_VM_GIT_PROJECTS_DIR'] : "#{default_vm_git_projects_dir}"
+  vm_apps_dir = ENV['JRA_DEV_ENV_VM_APPS_DIR'] ? ENV['JRA_DEV_ENV_VM_APPS_DIR'] : "#{default_vm_apps_dir}"
+  vm_maven_conf_dir = ENV['JRA_DEV_ENV_VM_MAVEN_CONF_DIR'] ? ENV['JRA_DEV_ENV_VM_MAVEN_CONF_DIR'] : "#{default_vm_maven_conf_dir}"
+  vm_maven_repo_dir = ENV['JRA_DEV_ENV_VM_MAVEN_REPO_DIR'] ? ENV['JRA_DEV_ENV_VM_MAVEN_REPO_DIR'] : "#{default_vm_maven_repo_dir}"
+  vm_aws_dir = ENV['JRA_DEV_ENV_VM_AWS_DIR'] ? ENV['JRA_DEV_ENV_VM_AWS_DIR'] : "#{default_vm_aws_dir}"
+  vm_aws_key_file_dir = ENV['JRA_DEV_ENV_VM_AWS_KEY_FILE_DIR'] ? ENV['JRA_DEV_ENV_VM_AWS_KEY_FILE_DIR'] : "#{default_vm_aws_key_file_dir}"
+  vm_share_dir = ENV['JRA_DEV_ENV_VM_SHARE_DIR'] ? ENV['JRA_DEV_ENV_VM_SHARE_DIR'] : "#{default_vm_share_dir}"
 
-  aws_key_file_name = ENV['DEV_ENV_AWS_KEY_FILE_NAME'] ? ENV['DEV_ENV_AWS_KEY_FILE_NAME'] : "#{default_aws_key_file_name}"
+  aws_key_file_name = ENV['JRA_DEV_ENV_AWS_KEY_FILE_NAME'] ? ENV['JRA_DEV_ENV_AWS_KEY_FILE_NAME'] : "#{default_aws_key_file_name}"
   
-  vm_aws_key_file_path = ENV['DEV_ENV_AWS_KEY_FILE_PATH'] ? ENV['DEV_ENV_AWS_KEY_FILE_NAME'] : "#{vm_aws_key_file_dir}/#{aws_key_file_name}"
+  vm_aws_key_file_path = ENV['JRA_DEV_ENV_VM_AWS_KEY_FILE_PATH'] ? ENV['JRA_DEV_ENV_AWS_KEY_FILE_NAME'] : "#{vm_aws_key_file_dir}/#{aws_key_file_name}"
 
-  vm_aws_access_key_id = ENV['AWS_ACCESS_KEY']
-  vm_aws_secret_access_key = ENV['AWS_SECRET_KEY']
+  vm_aws_access_key_id = ENV['JRA_AWS_ACCESS_KEY']
+  vm_aws_secret_access_key = ENV['JRA_AWS_SECRET_KEY']
 
 
   # -----------------------------------------------------------------------------------------------------------------------------------------------

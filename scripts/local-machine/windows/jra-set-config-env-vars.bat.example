@@ -1,0 +1,32 @@
+REM ##########################################################
+REM # Script to set Environment Variables
+REM # 
+REM # Usage:
+REM #   - This script must be run as administrator (open up MS-DOS as administrator)
+REM #   - This file is an example file.  The real script will be unique to your environment
+REM #   - Rename this file from "jra-set-config-env-vars.bat.example" to "jra-set-config-env-vars.bat"
+REM #   - Customize jra-set-config-env-vars.bat with values from your local enviornment & setup
+REM ########################################################## 
+
+setx -m AWS_ACCESS_KEY <your-access-key>
+setx -m AWS_SECRET_KEY <your-secret-key>
+
+setx -m JRA_DEV_ENV_LOCAL_GIT_PROJECTS_DIR ~\dev-env\git
+setx -m JRA_DEV_ENV_LOCAL_APPS_DIR ~\dev-env\apps
+setx -m JRA_DEV_ENV_LOCAL_MAVEN_CONF_DIR ~\dev-env\maven\conf
+setx -m JRA_DEV_ENV_LOCAL_MAVEN_REPO_DIR ~\dev-env\maven\.m2
+setx -m JRA_DEV_ENV_LOCAL_AWS_DIR ~\dev-env\aws
+setx -m JRA_DEV_ENV_LOCAL_AWS_KEY_FILE_DIR ~\dev-env\aws-keys
+setx -m JRA_DEV_ENV_LOCAL_SHARE_DIR ~\dev-env\share
+
+setx -m JRA_DEV_ENV_VM_GIT_PROJECTS_DIR /home/vagrant/git
+setx -m JRA_DEV_ENV_VM_APPS_DIR /home/vagrant/workspace/apps
+setx -m JRA_DEV_ENV_VM_MAVEN_CONF_DIR /home/vagrant/workspace/maven/conf
+setx -m JRA_DEV_ENV_VM_MAVEN_REPO_DIR /home/vagrant/.m2
+setx -m JRA_DEV_ENV_VM_AWS_DIR /home/vagrant/.aws
+setx -m JRA_DEV_ENV_VM_AWS_KEY_FILE_DIR /home/vagrant/aws-keys
+setx -m JRA_DEV_ENV_VM_SHARE_DIR /home/vagrant/share
+
+setx -m JRA_DEV_ENV_AWS_KEY_FILE_NAME jra-build.pem
+
+
