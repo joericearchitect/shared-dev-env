@@ -8,8 +8,8 @@
 # *********************************************************************************
 
 MACHINE_IP=$1
-REMOTE_COMMAND=$2
+LOCAL_FILE=$2
 REMOTE_FILE=$3
 SCP_USER=ubuntu
 
-ssh -i $AWS_KEY_FILE_PATH $SCP_USER@$MACHINE_IP $REMOTE_COMMAND
+scp -i $AWS_KEY_FILE_PATH $SCP_USER@$MACHINE_IP:$REMOTE_FILE $LOCAL_FILE
